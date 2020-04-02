@@ -1,0 +1,27 @@
+footer {
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+  margin: 0;
+  margin-top: 100px;
+  padding: 50px 0;
+  color: #fff;
+}
+.hr__footer {
+  border: 0;
+  height: 3px;
+  background-color: #fff;
+  margin: 10px auto 25px auto;
+  padding: 0;
+  max-width: 600px;
+}
+.h2__footer {
+  text-decoration: underline;
+  margin-bottom: 20px;
+}
+.p__footer {
+  color: #fff;
+  margin: 5px 0 0 0;
+}
+.p__footer a,
+.p__footer a:visited {
+  color: #fff;
+}

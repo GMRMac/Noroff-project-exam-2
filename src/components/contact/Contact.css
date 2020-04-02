@@ -1,0 +1,9 @@
+.form__input {
+  border: 0;
+  border-radius: 0;
+}
+.form__p {
+  text-align: left;
+  font-size: 14px;
+  color: #f00;
+}

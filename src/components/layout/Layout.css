@@ -1,0 +1,124 @@
+.navbar {
+  background-color: #fff;
+}
+.navbar-brand {
+  font-family: "montserrat";
+  font-weight: 600;
+}
+.nav-link {
+  font-family: "montserrat";
+  font-weight: 600;
+}
+.container {
+  max-width: 1200px;
+}
+.hr__header {
+  height: 2px;
+  width: 40%;
+  margin: 10px 30% 40px 30%;
+  display: inline-block;
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+  border: none;
+}
+.hr__header--small {
+  height: 2px;
+  width: 325px;
+  margin: 10px 30% 20px 30%;
+  display: inline-block;
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+  border: none;
+}
+.hr__card {
+  height: 2px;
+  width: 100%;
+  margin: 10px 0 20px 0;
+  display: inline-block;
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+  border: none;
+}
+h1 {
+  width: 100%;
+  margin: 0;
+  font-size: 36px;
+  font-weight: 400;
+  font-family: montserrat;
+}
+h2 {
+  width: 100%;
+  margin: 0;
+  font-size: 24px;
+  font-weight: 400;
+  font-family: montserrat;
+}
+p {
+  font-family: montserrat;
+  font-size: 18px;
+}
+.row .col-lg-4 {
+  padding: 10px;
+}
+.row .col-lg-4:nth-child(2n+2) .hr__card {
+  background: linear-gradient(45deg, #008d83 0%, #51ff8f 100%);
+}
+.row .col-lg-4:nth-child(2n+2) .button__container {
+  background: linear-gradient(45deg, #008d83 0%, #51ff8f 100%);
+}
+.row .col-lg-4:nth-child(2n+2) .card-button {
+  background: linear-gradient(45deg, #008d83 0%, #51ff8f 100%);
+}
+.card {
+  border: 0;
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px rgba(136,136,136,0.267);
+  transition: 0.25s;
+}
+.card:hover {
+  box-shadow: 3px 3px 8px rgba(136,136,136,0.067);
+  transition: 0.25s;
+  background-color: rgba(247,247,247,0.969) f7f7;
+}
+.card-img-top {
+  border-radius: 8px 8px 0 0;
+  height: 250px;
+}
+.card-button {
+  height: 50px;
+  border: 0;
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+  transition: 0.25s;
+}
+.card-button:hover {
+  background: #fff !important;
+  transition: 0.25s;
+  color: #090909;
+}
+.card-text {
+  font-family: montserrat;
+  font-size: 18px;
+  font-weight: 300;
+}
+button {
+  font-size: 24px !important;
+  font-family: montserrat;
+  font-weight: 200 !important;
+}
+input,
+textarea {
+  font-family: montserrat;
+}
+.card .button__container {
+  width: 60% !important;
+  display: block;
+}
+.button__container {
+  padding: 2px;
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+  border-radius: 6px;
+  margin: 0 auto;
+  display: inline-block;
+}
+.input--border {
+  padding-bottom: 4px;
+  margin-top: 20px;
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+}
