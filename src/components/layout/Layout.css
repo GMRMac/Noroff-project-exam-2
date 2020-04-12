@@ -119,6 +119,13 @@ textarea {
 }
 .input--border {
   padding-bottom: 4px;
-  margin-top: 20px;
+  margin-top: 40px;
   background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+}
+.input--border-number {
+  width: 60px;
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+  margin: 40px auto 0 auto;
+  padding-bottom: 4px;
+  display: block;
 }

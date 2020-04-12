@@ -1,14 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Row from "react-bootstrap/Row";
+import {
+    BrowserRouter as Router,
+    Switch,
+    Route,
+    NavLink,
+} from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import ImageShowcase from "./ImageShowcase";
 import "./StaysDetail.css";
 
-export default function StaysDetail({ details }){
+export default function StaysDetail({ details, history }){
     console.log(details)
+//    const linked = "/stays/" + {id} + "/order";
+//    console.log(linked)
     
     const fiveOfFive = require("../../../img/gfx/5of5.svg");
     const fourOfFive = require("../../../img/gfx/4of5.svg");
@@ -22,7 +30,8 @@ export default function StaysDetail({ details }){
         return(<></>)
     }
                
-    const {establishmentName, description, establishmentEmail, imageUrl, price, maxGuests, selfCatering} = details;
+    const {establishmentName, description, establishmentEmail, imageUrl, price, maxGuests, selfCatering, id} = details;
+               console.log(details)
     return(
                 <div className="pageSpecific">
                     <h1>{establishmentName}</h1>
@@ -32,13 +41,17 @@ export default function StaysDetail({ details }){
                     <img className="pageSpecific__stars" src={fiveOfFive}/>
                     <img className="pageSpecific__stars" src={threeOfFive}/>
                     <span>(63) - </span>
-                    <div className="button__container">
-                        <Button className="card-button" block>   Reserve now!   </Button>
-                    </div>
+                    <NavLink to="/stays/2/order">
+                        <div className="button__container">
+                            <Button className="card-button" block>   Reserve now!   </Button>
+                        </div>
+                    </NavLink>
                     <ImageShowcase imageUrl={imageUrl}/>
-                    <div className="button__container">
-                        <Button className="card-button" block>   Reserve now!   </Button>
-                    </div>
+                    <NavLink to="/stays/2/order">
+                        <div className="button__container">
+                            <Button className="card-button" block>   Reserve now!   </Button>
+                        </div>
+                    </NavLink>
                     <h2>Description</h2>
                     <hr className="hr__header--small"/>
                     <p>{description}</p>
@@ -73,4 +86,5 @@ export default function StaysDetail({ details }){
            
 StaysDetail.propTypes = {
    details: PropTypes.object.isRequired,
+   history: PropTypes.object.isRequired,
 };

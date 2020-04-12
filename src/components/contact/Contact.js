@@ -32,19 +32,20 @@ export default function Contact(){
     
     return(
         <Col sm={{span:6, offset: 3}}>
-            <Form action="contact-success.php">
+            <h1>Contact us</h1>
+            <Form method="POST" action="http://localhost/hotel-booking/server/contact-success.php">
                 <Form.Group className="input--border">
-                    <Form.Control className="form__input" name="firstName" placeholder="First name" ref={register} />
+                    <Form.Control className="form__input" name="clientName" id="clientName" placeholder="Full name" ref={register} />
                 </Form.Group>
                     {errors.firstName && <p className="form__p">{errors.firstName.message}</p>}
                                                                                  
                 <Form.Group className="input--border">                                                    
-                    <Form.Control className="form__input" name="lastName" placeholder="Enter your email" ref={register}/>
+                    <Form.Control className="form__input" name="email" id="email" placeholder="Enter your email" ref={register}/>
                 </Form.Group>
                     {errors.lastName && <p className="form__p">{errors.lastName.message}</p>}
                      
-                <Form.Group className="input--border" controlId="exampleForm.ControlTextarea1">
-                    <Form.Control placeholder="Enter your message" className="form__input" as="textarea" rows="3" />
+                <Form.Group className="input--border">
+                    <Form.Control name="message" id="" placeholder="Enter your message" className="form__input" as="textarea" rows="3" />
                 </Form.Group>
                 
                 <div className="button__container">

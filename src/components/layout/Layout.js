@@ -13,11 +13,16 @@ import Home from "../home/Home";
 import Contact from "../contact/Contact";
 import Login from "../login/Login";
 import StaysDetailContainer from "../stays/detail/StaysDetailContainer";
+import OrderPageContainer from "../stays/order/OrderPageContainer";
 import "./Layout.css";
 import Footer from "./Footer";
+import Admin from "../admin/Admin";
 
 
 export default function Layout() {
+        localStorage.setItem('user', "badmin");
+        localStorage.setItem('password', "root");
+    
         console.log("hi");
         return (
                 <Router>
@@ -42,7 +47,9 @@ export default function Layout() {
                             <Route path="/" exact component={Home} />
                             <Route path="/contact" component={Contact} />
                             <Route path="/login" component={Login} />
-                            <Route path="/stays/:id" component={StaysDetailContainer} />
+                            <Route path="/admin" component={Admin} />
+                            <Route path="/stays/:id" exact component={StaysDetailContainer} />
+                            <Route path="/stays/:id/order" exact component={OrderPageContainer} />
                         </Switch>
                     </Container>
                     <footer>
