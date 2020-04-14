@@ -17,6 +17,9 @@ import OrderPageContainer from "../stays/order/OrderPageContainer";
 import "./Layout.css";
 import Footer from "./Footer";
 import Admin from "../admin/Admin";
+import Establishments from "../admin/establishments/Establishments";
+import Enquiries from "../admin/enquiries/Enquiries";
+import Support from "../admin/contact/Contact";
 
 
 export default function Layout() {
@@ -47,7 +50,10 @@ export default function Layout() {
                             <Route path="/" exact component={Home} />
                             <Route path="/contact" component={Contact} />
                             <Route path="/login" component={Login} />
-                            <Route path="/admin" component={Admin} />
+                            <Route path="/admin" exact component={Admin} />
+                            <Route path="/admin/establishments" exact component={Establishments} />
+                            <Route path="/admin/enquiries" exact component={Enquiries} />
+                            <Route path="/admin/support" exact component={Support} />
                             <Route path="/stays/:id" exact component={StaysDetailContainer} />
                             <Route path="/stays/:id/order" exact component={OrderPageContainer} />
                         </Switch>

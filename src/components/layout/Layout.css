@@ -54,16 +54,16 @@ p {
   font-family: montserrat;
   font-size: 18px;
 }
-.row .col-lg-4 {
+.row .col-md-6 {
   padding: 10px;
 }
-.row .col-lg-4:nth-child(2n+2) .hr__card {
+.row .col-md-6:nth-child(2n+2) .hr__card {
   background: linear-gradient(45deg, #008d83 0%, #51ff8f 100%);
 }
-.row .col-lg-4:nth-child(2n+2) .button__container {
+.row .col-md-6:nth-child(2n+2) .button__container {
   background: linear-gradient(45deg, #008d83 0%, #51ff8f 100%);
 }
-.row .col-lg-4:nth-child(2n+2) .card-button {
+.row .col-md-6:nth-child(2n+2) .card-button {
   background: linear-gradient(45deg, #008d83 0%, #51ff8f 100%);
 }
 .card {

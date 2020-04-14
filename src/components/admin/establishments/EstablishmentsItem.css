@@ -1,0 +1,40 @@
+.card--admin .row {
+  margin: 0;
+  height: 100%;
+  align-content: center;
+  text-align: left;
+  height: 84px;
+}
+.card--admin .row .col-sm-1,
+.card--admin .row .col-sm-8 {
+  height: 84px;
+}
+.card--admin .row .col-sm-8 {
+  padding-left: 28px;
+  padding-top: 28px;
+  display: flex;
+  align-content: center;
+}
+.card--admin {
+  margin: 8px 0;
+  height: 84px !important;
+}
+.card--admin .button__card--delete {
+  background: linear-gradient(145deg, #ed213a, #93291e);
+}
+.card--admin .button__card--edit {
+  background: linear-gradient(145deg, #4b6cb7, #182848);
+}
+.card--admin .button__card--goto {
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+  border-radius: 0 8px 8px 0;
+}
+.card--admin .col-sm-1 {
+  display: flex;
+  justify-content: center;
+}
+.card--admin .col-sm-1 img {
+  height: 40px;
+  display: block;
+  margin-top: 22px;
+}

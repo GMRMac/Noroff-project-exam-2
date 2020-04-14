@@ -58,5 +58,9 @@ function onSubmitFunction(data){
     localStorage.setItem("userPwd", password.value)
     console.log(user.value)
     localStorage.setItem("userNmn", user.value)
-    window.location.href = '../admin';
+    
+    // Dop
+    if (user.value === localStorage.getItem("user") && password.value === localStorage.getItem("password")){
+        window.location.href = '../admin';
+    }
 }
