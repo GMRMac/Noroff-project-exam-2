@@ -6,18 +6,28 @@ import Col from "react-bootstrap/Col"
 import "./EnquiriesItem.css";
 import Accordion from 'react-bootstrap/Accordion'
 import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
+import Background from "../../../img/gfx/arrow_down.svg";
 
 export default function EnquiriesItem({clientName, establishment, email, checkin, checkout}){
     console.log(clientName)
     
     function CustomToggle({ children, eventKey }) {
-        const decoratedOnClick = useAccordionToggle(eventKey, () =>
-        console.log('totally custom!'),
-    );
+        const onClick = useAccordionToggle(eventKey);
+        
+        const myStyle = {
+            height: "40px",
+            width: "100%",
+            backgroundSize: "contain",
+            backgroundPosition: 'center',
+            backgroundRepeat: "no-repeat",
+            backgroundImage: `url(${Background})`,
+            cursor: "pointer",
+            marginTop: "4px"
+        }
         
         return (
             <>
-                <img src={arrowRight} style={{cursor: "disabled"}} onClick={decoratedOnClick} />
+                <div  style={myStyle} onClick={onClick}></div>
             </>
         );
         

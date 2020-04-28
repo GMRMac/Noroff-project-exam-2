@@ -14,14 +14,14 @@ import {
 
 
 const schema = yup.object().shape({
-	firstName: yup.string().required("First name is required"),
-	lastName: yup.string().required("Email is required"),
-	age: yup
-		.number()
-		.required()
-		.integer()
-		.min(10, "Age must be greater than 10")
-		.max(30, "Age must be less than 10")
+	username: yup
+		.string()
+		.required("Username is required"),
+	password: yup
+		.string()
+		.min(3, "The password must consist of 3 or more symbols.")
+		.max(32, "The password can't exceed the amount of 32 symbols.")
+        .required("Please enter a password"),
 });
 
 export default function Contact(){
@@ -29,22 +29,27 @@ export default function Contact(){
         validationSchema: schema
     })
     
+    const stayIcon = require("../../img/gfx/user.svg");
+    const keyIcon = require("../../img/gfx/key.svg");
+    
     return(
         <Col sm={{span:6, offset: 3}}>
             <h1>Login</h1>
-            <Form>
+            <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Group className="input--border">
+                    <img src={stayIcon}  className="input__icon"  />
                     <Form.Control className="form__input" name="username" id="username" placeholder="Enter username" ref={register}/>
                 </Form.Group>
-                    {errors.firstName && <p className="form__p">{errors.firstName.message}</p>}
+                    {errors.username && <p className="form__p">{errors.username.message}</p>}
                                                                                  
-                <Form.Group className="input--border">                                                    
-                    <Form.Control className="form__input" name="password" id="password" placeholder="Enter password" ref={register}/>
+                <Form.Group className="input--border">      
+                    <img src={keyIcon}  className="input__icon"  />                                              
+                    <Form.Control className="form__input" name="password" id="password" type="password" placeholder="Enter password" ref={register}/>
                 </Form.Group>
-                    {errors.lastName && <p className="form__p">{errors.lastName.message}</p>}
+                    {errors.password && <p className="form__p">{errors.password.message}</p>}
                 
                 <div className="button__container">
-                    <Button className="card-button" onClick={onSubmitFunction}>Submit form!</Button>
+                    <Button className="card-button" type="submit" onClick={onSubmitFunction}>Submit form!</Button>
                 </div>
             </Form>
         </Col>
@@ -63,4 +68,8 @@ function onSubmitFunction(data){
     if (user.value === localStorage.getItem("user") && password.value === localStorage.getItem("password")){
         window.location.href = '../admin';
     }
+}
+                     
+function onSubmit(data){
+    console.log("data", data);
 }

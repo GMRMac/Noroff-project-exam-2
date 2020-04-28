@@ -4,6 +4,8 @@ import { ESTABLISHMENTS_DATA } from "../../../constants/API";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import EstablishmentsItem from "./EstablishmentsItem"
+import EstablishmentsAddForm from "./EstablishmentsAddForm"
+import jsonData from "../../../json/establishments.json"
 import {NavLink} from "react-router-dom"; 
 
 export default function Establishments(){
@@ -11,16 +13,14 @@ export default function Establishments(){
     const [stays, setStays] = useState([]);
     const [filteredStays, setFilteredStays] = useState([]);
     const [inputEmpty, setInputEmpty] = useState(true);
+    const check = require("../../../img/gfx/checkWhite.svg");
         
+
+    
     useEffect(() => {
-        fetch(ESTABLISHMENTS_DATA)
-            .then(response => response.json())
-            .then(json => {setStays(json)
-                           setFilteredStays(json)
-                           console.log(json)
-                          })
-            .catch(error => console.log(error))
-    }, []);
+        setStays(jsonData);
+        setFilteredStays(jsonData)
+    }, [])
     
     const filterCards = function(e){
         const searchValue = e.target.value.toLowerCase();
@@ -43,19 +43,66 @@ export default function Establishments(){
         setFilteredStays(filteredArray);
         
     }
+    var lenghts = 0;
+    
+    for (var lengthed of filteredStays){
+        console.log(lengthed.id)
+        if(Number(lengthed.id) > lenghts){
+            lenghts = Number(lengthed.id)
+        }
+    }
+    
+    console.log(localStorage.getItem("addSuccessful"))
+    var addSuccess = localStorage.getItem("addSuccessful"),
+        editSuccess = localStorage.getItem("editSuccessful"),
+        removeSuccess = localStorage.getItem("removeSuccessful");
     
     return (
         <Row>
-            <NavLink to="/admin">Hei</NavLink>
+            <p className="p--small"><NavLink to="/admin">Admin page</NavLink> / Establisments</p>
+            {(() => {
+                    switch (addSuccess === "You have successfully added an establishment!"){
+                        case true:
+                            return <Col sm={{span:8, offset: 2}}><div id="alertOk" className="alert__container alert__container--success"><img src={check}  className="input__icon"  /><div className="alert__content alert__content--success">{addSuccess}</div></div></Col>;
+                        case false:
+                            return "";
+                        default:
+                            return "test";
+                    }
+                }
+            )()}            
+            {(() => {
+                    switch (editSuccess === "You have successfully edited an item!"){
+                        case true:
+                            return <Col sm={{span:8, offset: 2}}><div id="alertEdit" className="alert__container alert__container--edit"><img src={check}  className="input__icon"  /><div className="alert__content alert__content--edit">{editSuccess}</div></div></Col>;
+                        case false:
+                            return "";
+                        default:
+                            return "test";
+                    }
+                }
+            )()}            
+            {(() => {
+                    switch (removeSuccess === "You have successfully removed an item!"){
+                        case true:
+                            return <Col sm={{span:8, offset: 2}}><div id="alertDel" className="alert__container alert__container--remove"><img src={check}  className="input__icon"  /><div className="alert__content alert__content--remove">{removeSuccess}</div></div></Col>;
+                        case false:
+                            return "";
+                        default:
+                            return "test";
+                    }
+                }
+            )()}
             <h1>Add establishemnts</h1>
             <hr className="hr__header" />
+            <EstablishmentsAddForm arrayLength={lenghts}/>
             <h1>Establishments overview</h1>
             <hr className="hr__header" />
             {filteredStays.map(stay => {
-                const {id, establishmentName, imageUrl} = stay;
+                const {id, establishmentName, imageUrl, arrayLength} = stay;
                 
                 return (
-                    <Col sm={12} key={id}>
+                    <Col lg={6} key={id}>
                         <EstablishmentsItem id={id} establishmentName={establishmentName} imageUrl={imageUrl} />
                     </Col>
                 )

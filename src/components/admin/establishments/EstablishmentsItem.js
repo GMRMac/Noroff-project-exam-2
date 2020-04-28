@@ -17,16 +17,15 @@ export default function EstablishmentsItem({id, establishmentName, imageUrl}){
         backgroundImage: "url(" + imageUrl + ")", 
         backgroundPosition: 'center',
         backgroundSize: 'cover',
-        backgroundRepeat: 'no-repeat',
-        borderRadius: "8px 0 0 8px"
+        backgroundRepeat: 'no-repeat'
     }
         
     return(<Card className="card--admin">
                 <Row>
-                    <Col sm={1} style={myStyle}></Col>
-                    <Col sm={8}><h2>{establishmentName}</h2></Col>
-                    <Col sm={1} className="button__card--delete"><img src={X} /></Col>
-                    <Col sm={1} className="button__card--edit"><img src={pen} /></Col>
+                    <Col sm={2} style={myStyle} className="card--admin__image"></Col>
+                    <Col sm={7}><h2>{establishmentName}</h2></Col>
+                    <Col sm={1} xs={6} className="button__card--delete"><img src={X} /></Col>
+                    <Col sm={1} xs={6} className="button__card--edit"><img src={pen} /></Col>
                     <Col sm={1} className="button__card--goto"><img src={arrowRight} /></Col>
                 </Row>
             </Card>

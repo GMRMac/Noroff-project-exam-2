@@ -6,6 +6,7 @@ import {
     Switch,
     Route,
     NavLink,
+    withRouter,
 } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Col from "react-bootstrap/Col";
@@ -13,7 +14,7 @@ import Image from "react-bootstrap/Image";
 import ImageShowcase from "./ImageShowcase";
 import "./StaysDetail.css";
 
-export default function StaysDetail({ details, history }){
+ function StaysDetail({ details, history }){
     console.log(details)
 //    const linked = "/stays/" + {id} + "/order";
 //    console.log(linked)
@@ -29,11 +30,14 @@ export default function StaysDetail({ details, history }){
     if(details == null){
         return(<></>)
     }
+
                
     const {establishmentName, description, establishmentEmail, imageUrl, price, maxGuests, selfCatering, id} = details;
                console.log(details)
-    return(
+    return( 
+                
                 <div className="pageSpecific">
+                    <p className="p--small"><NavLink to="/">Home</NavLink> / {establishmentName}</p>
                     <h1>{establishmentName}</h1>
                     <img className="pageSpecific__stars" src={fiveOfFive}/>
                     <img className="pageSpecific__stars" src={fiveOfFive}/>
@@ -41,17 +45,13 @@ export default function StaysDetail({ details, history }){
                     <img className="pageSpecific__stars" src={fiveOfFive}/>
                     <img className="pageSpecific__stars" src={threeOfFive}/>
                     <span>(63) - </span>
-                    <NavLink to="/stays/2/order">
-                        <div className="button__container">
-                            <Button className="card-button" block>   Reserve now!   </Button>
-                        </div>
-                    </NavLink>
+                    <div className="button__container">
+                        <Button className="card-button" block  onClick={() => history.push(`/stays/${id}/order`)} >   Reserve now!   </Button>
+                    </div>
                     <ImageShowcase imageUrl={imageUrl}/>
-                    <NavLink to="/stays/2/order">
-                        <div className="button__container">
-                            <Button className="card-button" block>   Reserve now!   </Button>
-                        </div>
-                    </NavLink>
+                    <div className="button__container">
+                        <Button className="card-button" block   onClick={() => history.push(`/stays/${id}/order`)}>   Reserve now!   </Button>
+                    </div>
                     <h2>Description</h2>
                     <hr className="hr__header--small"/>
                     <p>{description}</p>
@@ -83,8 +83,13 @@ export default function StaysDetail({ details, history }){
             )
     
 }
+     
+    
            
 StaysDetail.propTypes = {
-   details: PropTypes.object.isRequired,
+   details: PropTypes.object,
    history: PropTypes.object.isRequired,
 };
+
+
+export default withRouter(StaysDetail);

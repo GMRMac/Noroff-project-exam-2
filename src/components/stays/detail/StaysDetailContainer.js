@@ -1,8 +1,8 @@
 import React, {Component} from "react";
 import PropTypes from "prop-types";
 import Spinner from "react-bootstrap/Spinner";
-import { ESTABLISHMENTS_DATA } from "../../../constants/API";
 import StaysDetail from "./StaysDetail";
+import jsonData from "../../../json/establishments.json"
 
 export default class StaysDetailContainer extends Component{
     static propTypes = {
@@ -18,20 +18,10 @@ export default class StaysDetailContainer extends Component{
         const {id} = this.props.match.params
         console.log(id)
         //create the URL string
-        const url = ESTABLISHMENTS_DATA;
-        console.log(url)
         
-        try {
-            const response = await fetch(url);
-            const json = await response.json();
-            console.log(json[id-1])
-            this.setState({
-                details: json[id-1]
-            })
-        }
-        catch (error){
-            console.log(error)
-        }
+        this.setState({
+                details: jsonData[id-1]
+        })
     }
 
     render(){

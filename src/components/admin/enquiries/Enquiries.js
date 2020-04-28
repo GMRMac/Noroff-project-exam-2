@@ -49,10 +49,12 @@ export default function Establishments(){
     
     return (
         <Row>
-            <NavLink to="/admin">Hei</NavLink>
+            <p className="p--small"><NavLink to="/admin">Admin page</NavLink> / Enquiries</p>
             <h1>Enquiries</h1>
             <hr className="hr__header" />
-            
+            <Col sm={5}><p style={{textAlign: "left", marginLeft:"12px"}}>Client name</p></Col>
+            <Col sm={3}><p style={{textAlign: "left"}}>Check-in</p></Col>
+            <Col sm={3}><p style={{textAlign: "left"}}>Check-out</p></Col>
             
         
             {stays.map(stay => {

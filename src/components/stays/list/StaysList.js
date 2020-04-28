@@ -1,31 +1,36 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
-import { ESTABLISHMENTS_DATA } from "../../../constants/API";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import StaysItem from "./StaysItem";
 import Search from "./Search";
+import jsonData from "../../../json/establishments.json"
+import {NavLink} from "react-router-dom"; 
 
-export default function StaysList(){
+export default function StaysList(){    
+    console.log(jsonData)
     
     const [stays, setStays] = useState([]);
     const [filteredStays, setFilteredStays] = useState([]);
     const [inputEmpty, setInputEmpty] = useState(true);
-        
+
     useEffect(() => {
-        fetch(ESTABLISHMENTS_DATA)
-            .then(response => response.json())
-            .then(json => {setStays(json)
-                           setFilteredStays(json)
-                           console.log(json)
-                          })
-            .catch(error => console.log(error))
+        setStays(jsonData)
+        setFilteredStays(jsonData)
     }, []);
     
     const filterCards = function(e){
+        const values = document.getElementById("seachFieldFromHell").value.toLowerCase();
+        const checkIn = document.getElementById("checkIn").value;
+        const checkOut = document.getElementById("checkOut").value;
         const searchValue = e.target.value.toLowerCase();
         
-        if(e.target.value != ""){
+        console.log(checkIn + ", " + checkOut)
+        
+        localStorage.setItem("checkinDateAsumption", checkIn);
+        localStorage.setItem("checkoutDateAsumption", checkOut);
+        
+        if(values != ""){
             setInputEmpty(false)
         } else {
             setInputEmpty(true)
@@ -33,28 +38,33 @@ export default function StaysList(){
         
         const filteredArray = stays.filter(function(stay){
             const lowerCaseStay = stay.establishmentName.toLowerCase();
+//            console.log(lowerCaseStay)
             
-            if(lowerCaseStay = stay.establishmentName(searchValue)){
+            
+            if(lowerCaseStay.startsWith(values)){
+                console.log("true")
                 return true;
-            }
+            } 
             return false;
+        
         })
         
         setFilteredStays(filteredArray);
+        console.log(filteredStays)
         
     }
     
     return (
         <Row>
-            <Search/>
-            <h1>Suggestions</h1>
-            <hr className="hr__header" />
+            <Search handleSearch={filterCards} inputEmpty={inputEmpty}/>
+            <h1>All stays!</h1>
+            <hr className="hr__header" /> 
             {filteredStays.map(stay => {
-                const {id, establishmentName, imageUrl} = stay;
+                const {id, establishmentName, imageUrl, description} = stay;
                 
                 return (
                     <Col md={6} lg={4} key={id}>
-                        <StaysItem id={id} name={establishmentName} image={imageUrl} />
+                        <StaysItem id={id} name={establishmentName} image={imageUrl} description={description}/>
                     </Col>
                 )
             })}

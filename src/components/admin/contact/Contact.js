@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Spinner from "react-bootstrap/Spinner";
-import { ENQUIRIES_DATA } from "../../../constants/API";
+import { CONTACT_DATA } from "../../../constants/API";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import SupportItem from "./ContactItem"
@@ -13,7 +13,7 @@ export default function Support(){
     const [inputEmpty, setInputEmpty] = useState(true);
         
     useEffect(() => {
-        fetch(ENQUIRIES_DATA)
+        fetch(CONTACT_DATA)
             .then(response => response.json())
             .then(json => {setStays(json)
                            setFilteredStays(json)
@@ -45,11 +45,11 @@ export default function Support(){
 //    }
     
     console.log(stays)
-    stays.sort(predicateByOposite("checkout"))
+    stays.sort(predicateBy("clientName"))
     
     return (
         <Row>
-            <NavLink to="/admin">Hei</NavLink>
+            <p className="p--small"><NavLink to="/admin">Admin page</NavLink> / Contacts</p>
             <h1>Contacts</h1>
             <hr className="hr__header" />
             
@@ -57,13 +57,13 @@ export default function Support(){
         
             {stays.map(stay => {
                 const randomKey = Math.random();
-                const {clientName, establishment, email, checkin, checkout} = stay;
+                const {clientName, establishment, email, message} = stay;
     
                 console.log(stay)
                 
                 return (
                     <Col sm={12} key={randomKey}>
-                        <SupportItem clientName={clientName} establishment={establishment} email={email} checkin={checkin} checkout={checkout} />
+                        <SupportItem clientName={clientName} establishment={establishment} email={email} message={message} />
                     </Col>
                 )
             })}

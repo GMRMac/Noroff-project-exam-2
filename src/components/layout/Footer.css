@@ -5,6 +5,12 @@ footer {
   padding: 50px 0;
   color: #fff;
 }
+footer h1 {
+  font-family: 'Bellota';
+  font-weight: 100;
+  font-size: 48px;
+  margin: 0;
+}
 .hr__footer {
   border: 0;
   height: 3px;
