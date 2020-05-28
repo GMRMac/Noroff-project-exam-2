@@ -8,9 +8,7 @@ import FormControl from "react-bootstrap/FormControl";
 import "./Search.css";
 
 export default function Search({handleSearch,resetInput,inputEmpty}){
-    
     const today = new Date();
-    console.log(today)
     if(today.getMonth() <= 10){
         var month = "0"+(today.getMonth()+1);
     } else {
@@ -21,8 +19,6 @@ export default function Search({handleSearch,resetInput,inputEmpty}){
     } else {
         var day = today.getDate();
     }
-    
-    console.log(day + "-" + month + "-" + today.getFullYear())
     
     const fullToday =  today.getFullYear()+ "-" + month + "-" + day;
     const fullTomorrow =  today.getFullYear()+ "-" + month + "-" + (day+1);
@@ -56,7 +52,6 @@ export default function Search({handleSearch,resetInput,inputEmpty}){
         </div>
     )
 }
-
 
 Search.propTypes = {
     handleSearch: PropTypes.func.isRequired,

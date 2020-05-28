@@ -8,9 +8,11 @@ function StaysItem({id, name, image, history, description}){
     var cardContent = "";
     const myStyle = {backgroundImage: `url(${image})`, backgroundPosition: 'center', backgroundRepeat: "no-repeat", backgroundSize: "cover"}
     
-    
     for(var i = 0; i < 64; i++){
-        cardContent = cardContent + description[i]
+        if(description[i] === undefined){
+        } else {
+            cardContent = cardContent + description[i]
+        }
     }
 
     return (
@@ -27,9 +29,7 @@ function StaysItem({id, name, image, history, description}){
                 </div>
             </Card.Body>
         </Card>
-    
-    
-    );
+    )
 }
 
 StaysItem.propTypes = {

@@ -17,6 +17,7 @@
 .card--admin-enquries {
   margin: 8px 0 !important;
   height: auto !important;
+  border-radius: 8px !important;
 }
 .card--admin-enquries .col-sm-5,
 .card--admin-enquries .col-sm-3 {
@@ -25,7 +26,6 @@
 }
 .card--admin-enquries .button__card--goo {
   background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
-  border-radius: 8px;
 }
 .card--admin-enquries .col-sm-1 {
   display: flex;
@@ -42,4 +42,8 @@
   border: 0;
   width: 90%;
   margin: 20px auto 40px auto;
+}
+.redXinput,
+.redX {
+  cursor: pointer;
 }

@@ -8,7 +8,6 @@ export default function ContactSuccess(){
             <h1>Form successfully sent in</h1>
             <hr className="hr__header" />
             <p>Thank you for contacting us! Your form has been successfully sent in to Holidaze and will be reviewed shortly.</p>
-            
             <br/>
             <NavLink to="/">
                 <div className="button__container" style={{marginBottom: "80px"}}>

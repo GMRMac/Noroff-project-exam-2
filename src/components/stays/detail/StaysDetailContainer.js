@@ -16,17 +16,12 @@ export default class StaysDetailContainer extends Component{
     async componentDidMount(){
         //get the id from the URL
         const {id} = this.props.match.params
-        console.log(id)
-        //create the URL string
-        
         this.setState({
-                details: jsonData[id-1]
+            details: jsonData[id-1]
         })
     }
-
     render(){
         const {details} = this.state;
-
         return <StaysDetail details={details} />
     }
 }

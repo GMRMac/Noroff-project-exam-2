@@ -18,7 +18,6 @@ import "./OrderPage.css"
 
 const today = new Date();
 const fullToday = today.getDate() + "-" + (today.getMonth()+1) + "-" + today.getFullYear();
-
 const schema = yup.object().shape({
 	clientName: yup
         .string()
@@ -58,13 +57,24 @@ export default function OrderPage( {details} ){
         return(<></>)
     }
                
-    const {establishmentName,maxGuests,id} = details;
-               
+    const {establishmentName,maxGuests,id} = details;         
+    const today = new Date();
+        
+    if(today.getMonth() <= 10){
+        var month = "0"+(today.getMonth()+1);
+    } else {
+        var month = today.getMonth();
+    }
+    if(today.getDay() >= 10){
+        var day = "0"+(Number(today.getDate()));
+    } else {
+        var day = today.getDate();
+    }
     
     const checkinAsumption = localStorage.getItem("checkinDateAsumption");
     const checoutAsumption = localStorage.getItem("checkoutDateAsumption");
-        
-        
+    const fullToday =  today.getFullYear()+ "-" + month + "-" + day;
+    const fullTomorrow =  today.getFullYear()+ "-" + month + "-" + (day+1);
     const checkinIcon = require("../../../img/gfx/checkin.svg"); 
     const checkoutIcon = require("../../../img/gfx/checkout.svg"); 
     const userIcon = require("../../../img/gfx/user.svg"); 
@@ -74,15 +84,17 @@ export default function OrderPage( {details} ){
     const msgIcon = require("../../../img/gfx/msg.svg"); 
         
     function onSubmit(data){
-        console.log("data", data.id.split(" "));
         var onlyID = data.id.split(" ")[0];
         var formData = new FormData();
+        
+        console.log(data.checkin.getFullYear() + "-" + (data.checkin.getMonth()+1) + "-" + data.checkin.getDate())
+        
         formData.append("establishmentName", data.establishmentName)
         formData.append("id", data.id)
         formData.append("clientName", data.clientName)
         formData.append("email", data.email)
-        formData.append("checkin", data.checkin)
-        formData.append("checkout", data.checkout)
+        formData.append("checkin", data.checkin.getFullYear() + "-" + (data.checkin.getMonth()+1) + "-" + data.checkin.getDate())
+        formData.append("checkout", data.checkout.getFullYear() + "-" + (data.checkout.getMonth()+1) + "-" + data.checkout.getDate())
         formData.append("adults", data.adults)
         formData.append("children", data.children)
         formData.append("notes", data.notes)
@@ -124,13 +136,13 @@ export default function OrderPage( {details} ){
                     <Row style={{marginLeft: "-15px!important"}}>      
                         <Col xs={6}>
                             <Form.Group className="input--border">                                                  
-                                <Form.Control className="form__input" name="checkin" defaultValue={checkinAsumption} id="checkin" placeholder="Check-in date" type="date" ref={register}/>
+                                <Form.Control className="form__input" name="checkin" defaultValue={checkinAsumption} id="checkin" placeholder="Check-in date" type="date" min={fullToday} ref={register}/>
                             </Form.Group>
                             {errors.checkin && <p className="form__p">{errors.checkin.message}</p>}
                         </Col>
                         <Col xs={6}>
                             <Form.Group className="input--border">                                                                      
-                                <Form.Control className="form__input" name="checkout" id="checkout" defaultValue={checoutAsumption} placeholder="Check-out date" type="date" ref={register}/>
+                                <Form.Control className="form__input" name="checkout" id="checkout" defaultValue={checoutAsumption} placeholder="Check-out date" type="date" min={fullTomorrow} ref={register}/>
                             </Form.Group>
                             {errors.checkout && <p className="form__p">{errors.checkout.message}</p>}
                         </Col>

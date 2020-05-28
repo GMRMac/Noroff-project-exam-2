@@ -8,39 +8,25 @@ import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
 import arrowDown from "../../../img/gfx/arrow_down.svg";
 
 export default function SupportItem({clientName, email, message}){
-    console.log(message);
-    
-
-        
-    
     function CustomToggle({children, eventKey}){
         const onClick = useAccordionToggle(eventKey)
-        
-        
-        
         const myStyle = {
-            height: "40px",
-            width: "40px",
-            backgroundSize: "contain",
-            backgroundPosition: 'center',
-            backgroundRepeat: "no-repeat",
-            backgroundImage: `url(${arrowDown})`,
-            cursor: "pointer",
-            marginTop: "4px",
-        }
+                height: "40px",
+                width: "40px",
+                backgroundSize: "contain",
+                backgroundPosition: 'center',
+                backgroundRepeat: "no-repeat",
+                backgroundImage: `url(${arrowDown})`,
+                cursor: "pointer",
+                marginTop: "4px",
+            }
         
-        
-         
-            
-          return (
-                    <>
-                        <div onClick={onClick} style={myStyle}></div>
-                    </>
-                
-                 )
+        return (
+            <>
+                <div onClick={onClick} style={myStyle}></div>
+            </>
+        )
     }
-    
-    
     return(
             <Accordion>
             <Card className="card--admin-enquries">
@@ -64,9 +50,7 @@ export default function SupportItem({clientName, email, message}){
         </Accordion>
     )
 }
-
-
-           
+     
 SupportItem.propTypes = {
     clientName: PropTypes.string.isRequired,
     email: PropTypes.string.isRequired,

@@ -9,12 +9,9 @@ import { useAccordionToggle } from 'react-bootstrap/AccordionToggle';
 import Background from "../../../img/gfx/arrow_down.svg";
 
 export default function EnquiriesItem({clientName, establishment, email, checkin, checkout}){
-    console.log(clientName)
-    
     function CustomToggle({ children, eventKey }) {
         const onClick = useAccordionToggle(eventKey);
-        
-        const myStyle = {
+        const myStyle = { // Gives every box their respectively image
             height: "40px",
             width: "100%",
             backgroundSize: "contain",
@@ -24,16 +21,12 @@ export default function EnquiriesItem({clientName, establishment, email, checkin
             cursor: "pointer",
             marginTop: "4px"
         }
-        
         return (
             <>
                 <div  style={myStyle} onClick={onClick}></div>
             </>
         );
-        
     }
-    
-    const arrowRight = require("../../../img/pic/debatten.png");
     
     return(
         <Accordion>
@@ -57,8 +50,6 @@ export default function EnquiriesItem({clientName, establishment, email, checkin
         </Accordion>
     )
 }
-
-
 
 EnquiriesItem.propTypes = {
     clientName: PropTypes.string.isRequired,

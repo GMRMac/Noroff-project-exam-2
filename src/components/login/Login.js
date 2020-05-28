@@ -12,7 +12,6 @@ import {
     NavLink,
 } from "react-router-dom";
 
-
 const schema = yup.object().shape({
 	username: yup
 		.string()
@@ -28,26 +27,23 @@ export default function Contact(){
     const {register, handleSubmit, watch, errors} = useForm({
         validationSchema: schema
     })
-    
     const stayIcon = require("../../img/gfx/user.svg");
     const keyIcon = require("../../img/gfx/key.svg");
     
     return(
         <Col sm={{span:6, offset: 3}}>
             <h1>Login</h1>
-            <Form onSubmit={handleSubmit(onSubmit)}>
+            <Form onSubmit={handleSubmit()}>
                 <Form.Group className="input--border">
                     <img src={stayIcon}  className="input__icon"  />
                     <Form.Control className="form__input" name="username" id="username" placeholder="Enter username" ref={register}/>
                 </Form.Group>
-                    {errors.username && <p className="form__p">{errors.username.message}</p>}
-                                                                                 
+                {errors.username && <p className="form__p">{errors.username.message}</p>}                                                           
                 <Form.Group className="input--border">      
                     <img src={keyIcon}  className="input__icon"  />                                              
                     <Form.Control className="form__input" name="password" id="password" type="password" placeholder="Enter password" ref={register}/>
                 </Form.Group>
-                    {errors.password && <p className="form__p">{errors.password.message}</p>}
-                
+                {errors.password && <p className="form__p">{errors.password.message}</p>}
                 <div className="button__container">
                     <Button className="card-button" type="submit" onClick={onSubmitFunction}>Submit form!</Button>
                 </div>
@@ -59,17 +55,11 @@ export default function Contact(){
 function onSubmitFunction(data){
     var password = document.getElementById("password"),
         user = document.getElementById("username");
-    console.log(password.value)
     localStorage.setItem("userPwd", password.value)
-    console.log(user.value)
     localStorage.setItem("userNmn", user.value)
     
-    // Dop
+    // If login is correct, login
     if (user.value === localStorage.getItem("user") && password.value === localStorage.getItem("password")){
         window.location.href = '../admin';
     }
-}
-                     
-function onSubmit(data){
-    console.log("data", data);
 }

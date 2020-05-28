@@ -8,12 +8,11 @@ import jsonData from "../../../json/establishments.json"
 import {NavLink} from "react-router-dom"; 
 
 export default function StaysList(){    
-    console.log(jsonData)
-    
     const [stays, setStays] = useState([]);
     const [filteredStays, setFilteredStays] = useState([]);
     const [inputEmpty, setInputEmpty] = useState(true);
 
+    // This gets the data from the local JSON instead of depending on a link
     useEffect(() => {
         setStays(jsonData)
         setFilteredStays(jsonData)
@@ -24,8 +23,6 @@ export default function StaysList(){
         const checkIn = document.getElementById("checkIn").value;
         const checkOut = document.getElementById("checkOut").value;
         const searchValue = e.target.value.toLowerCase();
-        
-        console.log(checkIn + ", " + checkOut)
         
         localStorage.setItem("checkinDateAsumption", checkIn);
         localStorage.setItem("checkoutDateAsumption", checkOut);
@@ -38,20 +35,15 @@ export default function StaysList(){
         
         const filteredArray = stays.filter(function(stay){
             const lowerCaseStay = stay.establishmentName.toLowerCase();
-//            console.log(lowerCaseStay)
-            
-            
             if(lowerCaseStay.startsWith(values)){
                 console.log("true")
                 return true;
             } 
             return false;
-        
         })
         
         setFilteredStays(filteredArray);
         console.log(filteredStays)
-        
     }
     
     return (
@@ -60,11 +52,11 @@ export default function StaysList(){
             <h1>All stays!</h1>
             <hr className="hr__header" /> 
             {filteredStays.map(stay => {
+                let randomKey = Math.random();
                 const {id, establishmentName, imageUrl, description} = stay;
-                
                 return (
                     <Col md={6} lg={4} key={id}>
-                        <StaysItem id={id} name={establishmentName} image={imageUrl} description={description}/>
+                        <StaysItem key={randomKey} id={id} name={establishmentName} image={imageUrl} description={description}/>
                     </Col>
                 )
             })}

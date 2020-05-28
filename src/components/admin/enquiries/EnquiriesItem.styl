@@ -1,3 +1,5 @@
+greenGradient = linear-gradient(-45deg, rgba(0,141,131,1) 0%, rgba(81,255,143,1) 100%);
+
 .card--admin-enquries .row
     margin 0
     height 100%
@@ -14,6 +16,7 @@
 .card--admin-enquries
     margin 8px 0!important
     height auto!important
+    border-radius 8px!important
     & .col-sm-5, .col-sm-3
         padding-top 12px
         height 20px
@@ -22,9 +25,8 @@
     & .button
         &__card
             &--goo
-                background: linear-gradient(-45deg, rgba(0,141,131,1) 0%, rgba(81,255,143,1) 100%);
-                border-radius 8px
-    & .col-sm-1  
+                background greenGradient
+    & .col-sm-1
         display flex
         justify-content center
         & img
@@ -34,8 +36,11 @@
             
 .hr
     &__enquiries
-        background: linear-gradient(-45deg, rgba(0,141,131,1) 0%, rgba(81,255,143,1) 100%);
+        background greenGradient
         height 2px
         border 0
         width 90%
         margin 20px auto 40px auto
+        
+.redXinput, .redX
+    cursor pointer

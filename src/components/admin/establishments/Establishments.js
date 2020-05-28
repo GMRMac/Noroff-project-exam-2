@@ -9,28 +9,24 @@ import jsonData from "../../../json/establishments.json"
 import {NavLink} from "react-router-dom"; 
 
 export default function Establishments(){
-    
     const [stays, setStays] = useState([]);
     const [filteredStays, setFilteredStays] = useState([]);
     const [inputEmpty, setInputEmpty] = useState(true);
     const check = require("../../../img/gfx/checkWhite.svg");
-        
-
     
-    useEffect(() => {
+    useEffect(() => { // This gets the data from the local JSON instead of depending on a link
         setStays(jsonData);
         setFilteredStays(jsonData)
     }, [])
     
     const filterCards = function(e){
         const searchValue = e.target.value.toLowerCase();
-        
+    
         if(e.target.value != ""){
             setInputEmpty(false)
         } else {
             setInputEmpty(true)
         }
-        
         const filteredArray = stays.filter(function(stay){
             const lowerCaseStay = stay.establishmentName.toLowerCase();
             
@@ -39,20 +35,15 @@ export default function Establishments(){
             }
             return false;
         })
-        
-        setFilteredStays(filteredArray);
-        
+        setFilteredStays(filteredArray); 
     }
     var lenghts = 0;
     
     for (var lengthed of filteredStays){
-        console.log(lengthed.id)
         if(Number(lengthed.id) > lenghts){
             lenghts = Number(lengthed.id)
         }
     }
-    
-    console.log(localStorage.getItem("addSuccessful"))
     var addSuccess = localStorage.getItem("addSuccessful"),
         editSuccess = localStorage.getItem("editSuccessful"),
         removeSuccess = localStorage.getItem("removeSuccessful");
@@ -63,6 +54,9 @@ export default function Establishments(){
             {(() => {
                     switch (addSuccess === "You have successfully added an establishment!"){
                         case true:
+                            setTimeout(function(){
+                                localStorage.removeItem("addSuccessful")
+                            }, 100)
                             return <Col sm={{span:8, offset: 2}}><div id="alertOk" className="alert__container alert__container--success"><img src={check}  className="input__icon"  /><div className="alert__content alert__content--success">{addSuccess}</div></div></Col>;
                         case false:
                             return "";

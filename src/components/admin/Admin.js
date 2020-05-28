@@ -10,7 +10,6 @@ export default function Admin(){
     const password = localStorage.getItem("userPwd");
     const adminUsername = localStorage.getItem("user");
     const adminPassword = localStorage.getItem("password");
-    console.log(username + ", " + adminUsername)
     
     if( username == adminUsername && password == adminPassword){
         return(

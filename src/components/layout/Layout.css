@@ -65,7 +65,7 @@ input[type=date]#checkOut::-webkit-calendar-picker-indicator {
 .hr__header--small {
   height: 2px;
   width: 325px;
-  margin: 10px 30% 20px 30%;
+  margin: 10px auto 20px auto;
   display: inline-block;
   background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
   border: none;
@@ -105,13 +105,13 @@ p.p--small {
   padding: 10px;
 }
 .row .col-md-6:nth-child(2n+2) .hr__card {
-  background: linear-gradient(45deg, #008d83 0%, #51ff8f 100%);
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
 }
 .row .col-md-6:nth-child(2n+2) .button__container {
-  background: linear-gradient(45deg, #008d83 0%, #51ff8f 100%);
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
 }
 .row .col-md-6:nth-child(2n+2) .card-button {
-  background: linear-gradient(45deg, #008d83 0%, #51ff8f 100%);
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
 }
 .card {
   border: 0;
@@ -205,10 +205,10 @@ input[type=number]::-webkit-outer-spin-button {
   background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
 }
 .alert__container--edit {
-  background: linear-gradient(145deg, #4b6cb7, #182848);
+  background: linear-gradient(145deg, #ed213a, #93291e);
 }
 .alert__container--remove {
-  background: linear-gradient(145deg, #ed213a, #93291e);
+  background: linear-gradient(145deg, #4b6cb7, #182848);
 }
 .alert__content {
   min-height: 36px;
@@ -220,7 +220,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 90%;
   margin: 0 5%;
 }
-@media (max-width: 500px) {
+@media (max-width: 992px) {
   .nav-link {
     text-align: center;
   }
@@ -251,9 +251,14 @@ input[type=number]::-webkit-outer-spin-button {
   }
   .card--admin__image {
     border-radius: 8px 8px 0 0 !important;
+    height: 100px;
   }
   .card--admin .row {
     height: auto !important;
+  }
+  .card--admin h2 {
+    text-align: center;
+    margin: 8px;
   }
   .button__card--edit,
   .button__card--delete,
@@ -268,7 +273,10 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0 !important;
   }
   .button__card--goto {
-    border-radius: 0 0 8px 8px !important;
+    border-radius: 0 0 8px 0 !important;
+  }
+  .button__card--delete {
+    border-radius: 0 0 0 8px !important;
   }
 }
 ::-webkit-scrollbar {
