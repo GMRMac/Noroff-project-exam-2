@@ -1,0 +1,49 @@
+input[type=date]#checkin::-webkit-inner-spin-button {
+  display: none !important;
+}
+input[type=date]#checkin::-webkit-calendar-picker-indicator {
+  color: rgba(0,0,0,0);
+  opacity: 1;
+  background-image: url("../../../img/gfx/checkin.svg");
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 24px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+input[type=date]::-webkit-search-cancel-button,
+input[type=date]::-webkit-clear-button {
+  -webkit-appearance: none;
+}
+input[type=date]#checkout::-webkit-inner-spin-button {
+  display: none !important;
+}
+input[type=date]#checkout::-webkit-calendar-picker-indicator {
+  color: rgba(0,0,0,0);
+  opacity: 1;
+  background-image: url("../../../img/gfx/checkout.svg");
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 24px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+select#adults {
+  -webkit-appearance: none;
+  opacity: 1;
+  display: block;
+  background-image: url("../../../img/gfx/adults.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px top 3px;
+  background-size: 28px;
+  cursor: pointer;
+}
+select#children {
+  -webkit-appearance: none;
+  opacity: 1;
+  background-image: url("../../../img/gfx/child.svg");
+  background-repeat: no-repeat;
+  background-position: right 10px top 3px;
+  background-size: 28px;
+  cursor: pointer;
+}

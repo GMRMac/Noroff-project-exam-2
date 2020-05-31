@@ -1,0 +1,18 @@
+input {
+  width: 100%;
+  border: 0;
+  font-family: montserrat;
+  padding-left: 6px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+.search {
+  margin-top: 60px;
+  width: 100%;
+}
+.search .col-sm-3:nth-child(odd) div {
+  background: linear-gradient(-45deg, #008d83 0%, #51ff8f 100%);
+}
+.search .button__container {
+  margin: 40px auto 100px auto !important;
+}

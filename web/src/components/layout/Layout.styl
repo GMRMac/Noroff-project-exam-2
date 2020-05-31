@@ -1,0 +1,276 @@
+shadow = 3px 3px 8px #88888844;
+@import url('https://fonts.googleapis.com/css2?family=Bellota:wght@300&display=swap');
+greenGradient = linear-gradient(-45deg, rgba(0,141,131,1) 0%, rgba(81,255,143,1) 100%);
+redGradient = linear-gradient(145deg, #ed213a, #93291e);
+blueGradient = linear-gradient(145deg, #4b6cb7, #182848);
+
+.nav
+    &bar
+        background-color #ffffff
+        &-brand
+            font-family 'Bellota'
+            font-weight 100
+            font-size 48px
+            margin 0
+        &-nav .col-sm-4 a:hover
+            text-decoration none
+        &-toggler
+            border 0
+            &-icon
+                background-image url(../../img/gfx/burger.svg)!important
+    &-link
+        font-family "montserrat"
+        font-weight 600
+    
+input[type=date]#checkIn
+    &::-webkit-inner-spin-button
+        display none!important
+    &::-webkit-calendar-picker-indicator
+        color rgba(0, 0, 0, 0)
+        opacity 1
+        background-image url('../../img/gfx/checkin.svg')
+        background-repeat no-repeat
+        width 28px
+        height 24px
+        cursor pointer
+        margin-left 5px
+    
+input[type=date]::-webkit-search-cancel-button, input[type=date]::-webkit-clear-button
+    -webkit-appearance: none;
+      
+input[type=date]#checkOut
+    &::-webkit-inner-spin-button
+        display none!important
+    &::-webkit-calendar-picker-indicator
+      color rgba(0, 0, 0, 0)
+      opacity 1
+      background-image url('../../img/gfx/checkout.svg')
+      background-repeat no-repeat
+      width 28px
+      height 24px
+      cursor pointer
+      margin-left 5px
+        
+.container
+    max-width 1200px
+    
+.hr
+    &__header
+        height 2px
+        width 40%
+        margin 10px 30% 40px 30%
+        display inline-block
+        background greenGradient
+        border none
+    &__header--small
+        height 2px
+        width 325px
+        margin 10px auto 20px auto
+        display inline-block
+        background greenGradient
+        border none
+        
+    &__card
+        height 2px
+        width 100%
+        margin 10px 0 20px 0
+        display inline-block
+        background greenGradient
+        border none
+    
+h1
+    width 100%
+    margin 0
+    font-size 36px
+    font-weight 400
+    font-family montserrat    
+    
+h2
+    width 100%
+    margin 0
+    font-size 24px
+    font-weight 400
+    font-family montserrat
+    
+p
+    font-family montserrat
+    font-size 18px
+    &.p--small
+        font-size 14px
+        font-weight 500
+        text-align left
+    
+.row
+    & .col-
+        &md-6
+            padding 10px
+            &:nth-child(2n+2)
+                & .hr__card
+                    background greenGradient
+                & .button__container
+                    background greenGradient
+                & .card-button
+                    background greenGradient
+                    
+            
+.card
+    border 0
+    border-radius 8px
+    box-shadow 3px 3px 8px #88888844
+    transition 0.25s
+    &:hover
+        box-shadow 3px 3px 8px #88888811
+        transition 0.25s
+        background-color #f7f7f7f7f7f7
+    &-img
+        &-top
+            border-radius 8px 8px 0 0
+            height 250px
+    &-button
+        height 50px
+        border 0
+        background greenGradient
+        transition 0.25s
+        &:hover
+            background #ffffff!important
+            transition 0.25s
+            color #090909
+    &-text
+        font-family montserrat
+        font-size 18px
+        font-weight 300
+            
+button
+    font-size 24px!important
+    font-family montserrat
+    font-weight 200!important
+    
+input, textarea
+    font-family montserrat
+
+.card .button__container
+    width 60%!important
+    display block
+ 
+.button__container
+    padding 2px
+    background greenGradient
+    border-radius 6px
+    margin 0 auto
+    display inline-block
+    
+input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer-spin-button
+    -webkit-appearance none
+    -moz-appearance none
+    appearance none
+    margin 0
+
+.input
+    &--border
+        padding-bottom 4px
+        margin-top 40px
+        background greenGradient
+        &-number
+            width 60px
+            background greenGradient
+            margin 40px auto 0 auto
+            padding-bottom 4px
+            display block
+    &__icon
+        position absolute
+        right 26px
+        height 26px    
+        margin-top 4px
+        
+.form
+    &__p
+        font-size 14px
+        
+.hidden
+    display none
+    
+.alert
+    &__container
+        padding 2px
+        border-radius 8px
+        margin-bottom 30px
+        box-shadow shadow
+        &--success
+            background greenGradient
+        &--edit
+            background redGradient
+        &--remove
+            background blueGradient
+    &__content
+        min-height 36px
+        padding-top 5px
+        border-radius 6px
+        font-size 18px
+        font-family "montserrat"
+        color white
+        width 90%
+        margin 0 5%
+        
+@media (max-width:992px)
+    .nav
+        &-link
+            text-align center
+        &bar
+            &-brand
+                font-size 38px
+    .col
+        &-sm
+            &-12
+                margin 0 auto
+        
+    .hr
+        &__header
+            width 90%
+            margin 10px 5% 20px 5%
+            &--small
+                width 80%
+                margin 10px 10% 20px 10%
+    h1
+        margin-top 30px
+        font-size 32px
+        
+    button
+        font-size 20px!important
+    .card
+        &--admin
+            height auto!important
+            margin-top 15px
+            &__image
+                border-radius 8px 8px 0 0!important
+                height 100px
+            & .row
+                height auto!important
+            & h2
+                text-align center
+                margin 8px
+    .button__card
+        &--edit, &--delete, &--goto
+            height auto!important
+            padding 15px 0
+            margin-top 0px!important
+            & img
+                margin 0!important
+        &--goto
+            border-radius 0 0 8px 0!important
+        &--delete
+            border-radius 0 0 0 8px!important
+        
+            
+::-webkit-scrollbar
+    width 20px
+    
+::-webkit-scrollbar-track
+    background #e9e9e9
+
+::-webkit-track
+    background red
+    
+::-webkit-scrollbar-thumb
+    background greenGradient
+    &:hover
+        background greenGradient

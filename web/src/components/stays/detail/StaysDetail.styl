@@ -1,0 +1,70 @@
+greenGradient = linear-gradient(-45deg, rgba(0,141,131,1) 0%, rgba(81,255,143,1) 100%);
+
+.pageSpecific
+    &__stars
+        width 18px
+        margin 0px 3px 5px 3px
+    &__liGraph
+        width 12px
+        margin 0px 6px 4px 0
+    & h1
+        margin 10px 0 25px 0
+    & h2
+        margin 100px 0 0 0 
+    & .button__container
+        margin 10px 5px 5px 5px
+    & span
+        font-family montserrat
+        font-size 18pxw
+    & ul
+        width 1200px
+        margin 0 auto
+        display flex
+        justify-content center
+    & li
+        list-style-image url("../../../img/gfx/liGraph.svg")
+        font-size 18px
+        font-family montserrat
+        width 300px
+        text-align left
+        margin 0 150px
+    & .image
+        &__container
+            width 100%
+            display block
+            margin 20px 0
+            padding 4px
+            & img
+                width 100%
+            &--showcase
+                height 422px
+                overflow hidden
+                display flex
+                justify-content center
+            &--preview
+                height 100px
+                width 120px
+                margin 6px 6px 18px 0
+                background-color #ffffff
+                transition 0.2s
+                &:hover
+                    background: linear-gradient(-45deg, rgba(131,131,131,1) 0%, rgba(230,230,230,1) 100%)
+                    transition 0.2s
+                    cursor pointer
+                & div
+                    height  96px
+                    width  116px
+                    margin 2px
+                    border 2px solid white
+                &-container
+                    display flex
+                    overflow-x scroll
+                    &::-webkit-scrollbar-track
+                        border-radius 5px
+                    &::-webkit-scrollbar
+                        height 10px!important
+                    &::-webkit-scrollbar-thumb
+                        border-radius 5px
+                    & .active
+                        background greenGradient
+                        transition 2s
