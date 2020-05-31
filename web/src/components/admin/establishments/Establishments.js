@@ -42,6 +42,9 @@ export default function Establishments(){
             lenghts = Number(lengthed.id)
         }
     }
+    localStorage.setItem("editSuccessful", "You have successfully edited an item!") // just for show
+    localStorage.setItem("removeSuccess", "You have successfully removed an item!") // just for show
+    
     var addSuccess = localStorage.getItem("addSuccessful"),
         editSuccess = localStorage.getItem("editSuccessful"),
         removeSuccess = localStorage.getItem("removeSuccessful");
