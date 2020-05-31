@@ -2,8 +2,8 @@
 
 ### Before getting started
 
-Before getting started you will need to download Node and an apache host, for this I've used XAMPP.
-Node: [Download here](https://nodejs.org/en/)
+Before getting started you will need to download Node and an apache host, for this I've used XAMPP.</br>
+Node: [Download here](https://nodejs.org/en/)</br>
 XAMPP: [Download here](https://www.apachefriends.org/index.html)
 
 ### After downloading
